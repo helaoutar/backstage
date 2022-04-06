@@ -1,5 +1,13 @@
 # @backstage/core-components
 
+## 0.9.3-next.2
+
+### Patch Changes
+
+- 24254fd433: build(deps): bump `@testing-library/user-event` from 13.5.0 to 14.0.0
+- Updated dependencies
+  - @backstage/core-plugin-api@1.0.1-next.0
+
 ## 0.9.3-next.1
 
 ### Patch Changes

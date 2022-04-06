@@ -1,5 +1,11 @@
 # @backstage/plugin-auth-backend
 
+## 0.13.0-next.2
+
+### Patch Changes
+
+- de231e5b06: Declare oauth2 `clientSecret` with visibility secret
+
 ## 0.13.0-next.1
 
 ### Patch Changes
