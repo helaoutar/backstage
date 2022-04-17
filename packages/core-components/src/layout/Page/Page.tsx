@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import React, { useContext } from 'react';
+import React, { useCallback, useContext } from 'react';
 import { BackstageTheme } from '@backstage/theme';
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import { SidebarPinStateContext } from '../Sidebar/Page';
@@ -45,13 +45,17 @@ export function Page(props: Props) {
   const { themeId, children } = props;
   const { isMobile } = useContext(SidebarPinStateContext);
   const classes = useStyles({ isMobile });
+
+  const getTheme = useCallback(
+    (baseTheme: BackstageTheme) => ({
+      ...baseTheme,
+      page: baseTheme.getPageTheme({ themeId }),
+    }),
+    [themeId],
+  );
+
   return (
-    <ThemeProvider
-      theme={(baseTheme: BackstageTheme) => ({
-        ...baseTheme,
-        page: baseTheme.getPageTheme({ themeId }),
-      })}
-    >
+    <ThemeProvider theme={getTheme}>
       <div className={classes.root}>{children}</div>
     </ThemeProvider>
   );
